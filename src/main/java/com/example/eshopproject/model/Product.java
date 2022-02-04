@@ -1,17 +1,22 @@
 package com.example.eshopproject.model;
 
 import lombok.Data;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Data
 @Entity
-public class Product {
+@DynamicUpdate
+public class Product implements Serializable {
 
     @Id
-    private Long id;
+    private String productId;
     @NotNull
     private String productName;
     @NotNull
@@ -20,5 +25,17 @@ public class Product {
     private Integer productStock;
     @NotNull
     private String productDescription;
+
+    private String productIcon;
+
+    @ColumnDefault("0")
+    private Integer productStatus;
+
+    @ColumnDefault("0")
+    private Integer categoryType;
+
+    public Product(){
+
+    }
 
 }
