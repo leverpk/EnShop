@@ -3,13 +3,8 @@ package com.example.eshopproject.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import java.math.BigDecimal;
-import java.util.Objects;
 
 @Entity
 @Data
@@ -29,65 +24,11 @@ public class ProductInOrder {
     @JsonIgnore
     private Order order;
 
-    @NotEmpty
-    private String productId;
-
-    @NotEmpty
-    private String productName;
-
-    @NotNull
-    private String productDescription;
-
-    private String productIcon;
-
-    @NotNull
-    private Integer categoryType;
-
-    @NotNull
-    private BigDecimal productPrice;
-
-    @Min(0)
-    private Integer productStock;
+    @ManyToOne
+    @JoinColumn(name = "product_product_id")
+    private Product product;
 
     @Min(1)
     private Integer count;
 
-    public ProductInOrder(Product product, Integer quantity){
-        this.productId = product.getProductId();
-        this.productName = product.getProductName();
-        this.productDescription = product.getProductDescription();
-        this.productIcon = product.getProductIcon();
-        this.categoryType = product.getCategoryType();
-        this.productPrice = product.getProductPrice();
-        this.productStock = product.getProductStock();
-        this.count = quantity;
-    }
-
-    @Override
-    public String toString() {
-        return "ProductInOrder{" +
-                "id=" + id +
-                ", productId='" + productId + '\'' +
-                ", productName='" + productName + '\'' +
-                ", productDescription='" + productDescription + '\'' +
-                ", productIcon='" + productIcon + '\'' +
-                ", categoryType=" + categoryType +
-                ", productPrice=" + productPrice +
-                ", productStock=" + productStock +
-                ", count=" + count +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ProductInOrder that = (ProductInOrder) o;
-        return Objects.equals(id, that.id) && Objects.equals(productId, that.productId) && Objects.equals(productName, that.productName) && Objects.equals(productDescription, that.productDescription) && Objects.equals(productIcon, that.productIcon) && Objects.equals(categoryType, that.categoryType) && Objects.equals(productPrice, that.productPrice);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, productId, productName, productDescription, productIcon, categoryType, productPrice);
-    }
 }

@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head th:fragment="head" >
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>LoadUp</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+<nav th:fragment="navigation" class="navbar navbar-expand-lg navbar-light bg-light">
+    <img src="https://i.ibb.co/4Rh0VDk/LOAD-UP.png" width="70px" height="70px">
+    <a class="navbar-brand ml-3" href="/">Strona Główna</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">O Nas</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Wyszukaj produkt" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Szukaj</button>
+        </form>
+    </div>
+</nav>
 </body>
 </html>
