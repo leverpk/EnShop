@@ -18,11 +18,23 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">O Nas</a>
             </li>
+            <li th:each="category:${categories}" class="nav-item active">
+                <a class="nav-link" th:href="@{'/category/' + ${category.getCategoryId}}" th:text="${category.getCategoryName()}"><span class="sr-only">(current)</span></a>
+            </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Wyszukaj produkt" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Szukaj</button>
+            <button class="btn btn-outline-success my-2 my-sm-0 ml-2" type="submit">Szukaj</button>
         </form>
+        <div class="ml-3" th:if="${!#strings.equals(#authentication.getName(), 'anonymousUser')}">
+            <a class="btn btn-outline-success my-2 my-sm-0 ml-2" th:href="@{/logout}">Wyloguj</a>
+        </div>
+        <div th:if="${#strings.equals(#authentication.getName(), 'anonymousUser')}">
+            <a class="btn btn-outline-success my-2 my-sm-0 ml-2" th:href="@{/login}">Zaloguj</a>
+        </div>
+        <div th:if="${#strings.equals(#authentication.getName(), 'anonymousUser')}">
+            <a class="btn btn-outline-success my-2 my-sm-0 ml-2" th:href="@{/login}">Zarejestruj się</a>
+        </div>
     </div>
 </nav>
 </body>

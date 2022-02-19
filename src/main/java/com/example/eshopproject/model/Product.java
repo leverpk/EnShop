@@ -3,7 +3,6 @@ package com.example.eshopproject.model;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +13,6 @@ import java.math.BigDecimal;
 @Data
 @Entity
 @Builder
-@NoArgsConstructor
 public class Product {
 
     @Id
