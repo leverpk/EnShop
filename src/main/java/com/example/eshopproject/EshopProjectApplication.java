@@ -2,6 +2,7 @@ package com.example.eshopproject;
 
 import com.example.eshopproject.model.Category;
 import com.example.eshopproject.model.Customer;
+import com.example.eshopproject.model.UserRole;
 import com.example.eshopproject.repository.CategoryRepository;
 import com.example.eshopproject.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
@@ -45,6 +46,17 @@ public class EshopProjectApplication implements CommandLineRunner {
         Category supplements = categoryRepository.save(Category.builder()
                 .categoryName("Suplementy")
                 .description("Tableteczki i nie tylko.")
+                .build());
+        final Customer customer1 = customerRepository.save(Customer.builder()
+                .firstName("Kamil")
+                .lastName("Lewandowski")
+                .email("lever@sda.pl")
+                .username("lever")
+                .password("1234")
+                .phone("678211241")
+                .address("Suleckiego 51d/12, 81-101, Tarnobrzeg Wielki")
+                .role("ROLE_ADMIN")
+                .enabled(true)
                 .build());
     }
 }
