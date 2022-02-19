@@ -2,13 +2,18 @@ package com.example.eshopproject;
 
 import com.example.eshopproject.model.Category;
 import com.example.eshopproject.model.Customer;
+import com.example.eshopproject.model.Product;
 import com.example.eshopproject.model.UserRole;
 import com.example.eshopproject.repository.CategoryRepository;
 import com.example.eshopproject.repository.CustomerRepository;
+import com.example.eshopproject.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.math.BigDecimal;
+import java.util.List;
 
 @SpringBootApplication
 @RequiredArgsConstructor
@@ -16,6 +21,7 @@ public class EshopProjectApplication implements CommandLineRunner {
 
     private final CategoryRepository categoryRepository;
     private final CustomerRepository customerRepository;
+    private final ProductRepository productRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(EshopProjectApplication.class, args);
@@ -27,9 +33,16 @@ public class EshopProjectApplication implements CommandLineRunner {
                 .categoryName("Shoty")
                 .description("Mała dawka wielkiego pobudzacza.")
                 .build());
+        Product orangeCoffee = productRepository.save(Product.builder()
+                .productName("Kawa pomarańczowa")
+                .productDescription("Kawa o smaku pomarańczowym")
+                .productStock(100)
+                .productPrice(new BigDecimal("49"))
+                .build());
         Category coffee = categoryRepository.save(Category.builder()
                 .categoryName("Kawa")
                 .description("Tradycyjny pobudzacz w różnych wariancjach smakowych.")
+                .productsList(List.of(orangeCoffee))
                 .build());
         Category tea = categoryRepository.save(Category.builder()
                 .categoryName("Herbata")
@@ -58,5 +71,6 @@ public class EshopProjectApplication implements CommandLineRunner {
                 .role("ROLE_ADMIN")
                 .enabled(true)
                 .build());
+
     }
 }

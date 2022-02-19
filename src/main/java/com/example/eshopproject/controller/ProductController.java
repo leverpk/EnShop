@@ -6,23 +6,23 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/category")
 @RequiredArgsConstructor
-public class CategoryController {
+public class ProductController {
 
-    private final CategoryService categoryService;
     private final ProductService productService;
+    private final CategoryService categoryService;
 
-    @GetMapping("/{id}")
-    public String getCategories(Model model, @PathVariable Long id) {
+    @GetMapping("/category/{id}/product")
+    public String productsList(Model model, @PathVariable Long id){
         model.addAttribute("categories", categoryService.findAllCategories());
         model.addAttribute("products", productService.findAllProductsInCategory(id));
         model.addAttribute("category", categoryService.getById(id));
         model.addAttribute("categoryId", id);
-        return "/product/list";
+        return "product/list";
     }
+
 }

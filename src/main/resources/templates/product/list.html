@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:insert="main::head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav th:replace="main::navigation(categories=${categories})"></nav>
+<table>
+    <thead>
+    <tr>
+    </tr>
+    </thead>
+    <tbody>
+
+    <div class="threadlist m-4">
+        <h2 th:text="${category.getCategoryName()}"></h2>
+    </div>
+    <br>
+
+    <tr th:each="product:${products}">
+        <div class="threadlist m-4">
+            <h4><a th:href="@{'/category/' + ${categoryId} + '/products/' + ${product.getProductId()} + '/details'}" th:text="${product.getProductName()}"></a>
+                <!--            lista threadów-->
+            </h4></div>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

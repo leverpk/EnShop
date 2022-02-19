@@ -19,4 +19,9 @@ public class JpaCategoryService implements CategoryService{
     public List<Category> findAllCategories() {
         return categoryRepository.findAll();
     }
+
+    @Override
+    public Category getById(Long id) {
+        return categoryRepository.getById(id);
+    }
 }

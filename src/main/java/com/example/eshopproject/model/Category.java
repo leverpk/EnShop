@@ -1,13 +1,13 @@
 package com.example.eshopproject.model;
 
+import com.example.eshopproject.controller.ProductController;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Builder
 @Entity
@@ -21,5 +21,7 @@ public class Category {
     private Long categoryId;
     private String categoryName;
     private String description;
+    @OneToMany
+    private List<Product> productsList;
 
 }
