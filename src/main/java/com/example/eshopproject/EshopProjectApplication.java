@@ -38,11 +38,19 @@ public class EshopProjectApplication implements CommandLineRunner {
                 .productDescription("Kawa o smaku pomarańczowym")
                 .productStock(100)
                 .productPrice(new BigDecimal("49"))
+                .productIcon("https://image.shutterstock.com/z/stock-photo-cup-of-freshly-brewed-coffee-with-dried-oranges-on-the-table-1901778148.jpg")
+                .build());
+        Product brazilianCoffee = productRepository.save(Product.builder()
+                .productName("Kawa brazylijska Santos")
+                .productDescription("Prosto z brazylijskiego serca!")
+                .productStock(50)
+                .productPrice(new BigDecimal("39"))
+                .productIcon("https://image.shutterstock.com/z/stock-photo-happy-farmers-collecting-arabica-coffee-beans-on-the-coffee-tree-1702113751.jpg")
                 .build());
         Category coffee = categoryRepository.save(Category.builder()
                 .categoryName("Kawa")
                 .description("Tradycyjny pobudzacz w różnych wariancjach smakowych.")
-                .productsList(List.of(orangeCoffee))
+                .productsList(List.of(orangeCoffee, brazilianCoffee))
                 .build());
         Category tea = categoryRepository.save(Category.builder()
                 .categoryName("Herbata")

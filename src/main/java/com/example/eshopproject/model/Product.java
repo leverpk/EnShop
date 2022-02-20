@@ -27,6 +27,8 @@ public class Product {
     private BigDecimal productPrice;
     @NotNull
     private Integer productStock;
+
+    private String productIcon;
     @NotNull
     private String productDescription;
 
