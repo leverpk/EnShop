@@ -34,6 +34,7 @@
     </strong>
 </span>
         </div>
+        <a th:href="${'/basket/list'}"><img src="https://i.ibb.co/GCTy1tq/Pngtree-shopping-cart-icon-4423346.png" height="60px" width="60px"></a>
         <div class="ml-3" th:if="${!#strings.equals(#authentication.getName(), 'anonymousUser')}">
             <a class="btn btn-outline-success my-2 my-sm-0 ml-2" th:href="@{/logout}">Wyloguj</a>
         </div>

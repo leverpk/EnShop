@@ -21,6 +21,11 @@
                 <div class="text-center"><span th:text="${product.getProductDescription()}"></span><br>
                 <div class="text-center">Na stanie: <span th:text="${product.getProductStock()}"></span>
             </h5></div>
+<!--                    <button type="submit">-->
+<!--                        <h4><a th:href="${'/category/' + ${categoryId}}">Powrót</a></h4></button>-->
+                    <button type="submit"><a th:href="@{'/category/' + ${categoryId}}">Powrót</a></button>
+                    <button type="submit">Do koszyka</button>
+
 
     </tbody>
 </table>
