@@ -25,4 +25,9 @@ public class JpaProductService implements ProductService{
     public List<Product> findAllProductsInCategory(Long id) {
         return categoryRepository.findById(id).map(Category::getProductsList).orElseThrow();
     }
+
+    @Override
+    public Product getByProductId(Long id) {
+        return productRepository.getById(id);
+    }
 }

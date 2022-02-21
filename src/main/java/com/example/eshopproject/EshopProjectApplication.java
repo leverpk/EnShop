@@ -38,14 +38,14 @@ public class EshopProjectApplication implements CommandLineRunner {
                 .productDescription("Kawa o smaku pomarańczowym")
                 .productStock(100)
                 .productPrice(new BigDecimal("49"))
-                .productIcon("https://image.shutterstock.com/z/stock-photo-cup-of-freshly-brewed-coffee-with-dried-oranges-on-the-table-1901778148.jpg")
+                .productIcon("https://pixabay.com/get/g9ec5a1f2adfe3a45831ba9137bf39c84b19cf96cb15a9caa1a89f2d9b8c8fc0096d81b01748ce15921c7ce3c3a32bb22d3aaa5c823f7a564e2befe9d93d95e27d4ee584ebf0d33e1953e8c15f101a559_640.jpg")
                 .build());
         Product brazilianCoffee = productRepository.save(Product.builder()
                 .productName("Kawa brazylijska Santos")
                 .productDescription("Prosto z brazylijskiego serca!")
                 .productStock(50)
                 .productPrice(new BigDecimal("39"))
-                .productIcon("https://image.shutterstock.com/z/stock-photo-happy-farmers-collecting-arabica-coffee-beans-on-the-coffee-tree-1702113751.jpg")
+                .productIcon("https://pixabay.com/get/gd1267fbc44d6cef2de07b9e7311b0ef7490f09e4f061b031deb9108414f0bcfacbcf32d477ae80090acce75cba3f6bf514f81b762425fc01cd482a63083a0ea546a561c78641656a7754654a51335d2b_640.jpg")
                 .build());
         Category coffee = categoryRepository.save(Category.builder()
                 .categoryName("Kawa")

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:insert="main::head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav th:replace="main::navigation(categories=${categories})"></nav>
+<table>
+    <thead>
+    <tr>
+    </tr>
+    </thead>
+    <tbody>
+
+                <div class="text-center mt-4"><img th:src="${product.getProductIcon()}" width="500px" height="300px"></div>
+                <div class="text-center"><span th:text="${product.getProductName()}"></span>
+                <div class="text-center"><span th:text="${product.getProductPrice()}"></span><span> zł</span></div>
+                <div class="text-center"><span th:text="${product.getProductDescription()}"></span><br>
+                <div class="text-center">Na stanie: <span th:text="${product.getProductStock()}"></span>
+            </h5></div>
+
+    </tbody>
+</table>
+</body>
+</html>

@@ -23,8 +23,8 @@
 
     <tr th:each="product:${products}">
         <div class="text-center border border-dark rounded productlist d-inline-block m-4">
-            <a th:href="@{'/category/' + ${categoryId} + '/products/' + ${product.getProductId()} + '/details'}"><img th:src="${product.getProductIcon()}" width="250px" height="170px"></a>
-            <h5><a th:href="@{'/category/' + ${categoryId} + '/products/' + ${product.getProductId()} + '/details'}" th:text="${product.getProductName()}"></a>
+            <a th:href="@{'/category/' + ${categoryId} + '/products/' + ${product.getProductId()}}"><img th:src="${product.getProductIcon()}" width="250px" height="170px"></a>
+            <h5><a th:href="@{'/category/' + ${categoryId} + '/products/' + ${product.getProductId()}}" th:text="${product.getProductName()}"></a>
                 <br>
                 <div class="text-center"><span th:text="${product.getProductPrice()}"></span>
                 <span>zł</span></div>
