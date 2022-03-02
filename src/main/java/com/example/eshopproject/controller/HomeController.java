@@ -1,17 +1,18 @@
 package com.example.eshopproject.controller;
 
 import com.example.eshopproject.service.CategoryService;
+import com.example.eshopproject.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequiredArgsConstructor
 public class HomeController {
 
     private final CategoryService categoryService;
+    private final ProductService productService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home(Model model){

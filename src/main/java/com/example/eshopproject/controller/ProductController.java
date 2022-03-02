@@ -5,9 +5,8 @@ import com.example.eshopproject.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
+
 
 @Controller
 @RequiredArgsConstructor
@@ -33,6 +32,14 @@ public class ProductController {
         model.addAttribute("product", productService.getByProductId(idProduct));
         model.addAttribute("idProduct", idProduct);
         return "product/details";
+    }
+
+    @GetMapping ("/products/searched")
+    public String searchedProducts(Model model, @RequestParam(value = "phrase", required = false) String phrase) {
+        model.addAttribute("categories", categoryService.findAllCategories());
+        model.addAttribute("productsSearched", productService.findAllProductsContainsPhrase(phrase));
+        model.addAttribute("phrase", phrase);
+        return "product/searched-products";
     }
 
 }

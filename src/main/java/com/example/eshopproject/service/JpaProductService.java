@@ -30,4 +30,10 @@ public class JpaProductService implements ProductService{
     public Product getByProductId(Long id) {
         return productRepository.getById(id);
     }
+
+    @Override
+    public List<Product> findAllProductsContainsPhrase(String phrase) {
+        return productRepository.findProductsByProductNameContains(phrase);
+    }
+
 }

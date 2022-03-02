@@ -1,17 +1,22 @@
 package com.example.eshopproject.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
+@Builder
 @Entity
+@Data
 @NoArgsConstructor
-public class Basket {
+@AllArgsConstructor
+public class Basket implements Serializable {
 
     @Id
     @NotNull

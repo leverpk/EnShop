@@ -53,7 +53,7 @@ public class EshopProjectApplication implements CommandLineRunner {
                 .productDescription("Kawa o smaku pomarańczowym")
                 .productStock(100)
                 .productPrice(new BigDecimal("49"))
-                .productIcon("https://pixabay.com/get/g9ec5a1f2adfe3a45831ba9137bf39c84b19cf96cb15a9caa1a89f2d9b8c8fc0096d81b01748ce15921c7ce3c3a32bb22d3aaa5c823f7a564e2befe9d93d95e27d4ee584ebf0d33e1953e8c15f101a559_640.jpg")
+                .productIcon("static/orangecoffee.jpg")
                 .build());
         Product brazilianCoffee = productRepository.save(Product.builder()
                 .productName("Kawa brazylijska Santos")
@@ -135,7 +135,7 @@ public class EshopProjectApplication implements CommandLineRunner {
                 .productName("Afrykański czarodziej")
                 .productDescription("Na pobudzenie mózgu i nie tylko.")
                 .productStock(10)
-                .productPrice(new BigDecimal("19"))
+                .productPrice(new BigDecimal("29"))
                 .productIcon("https://pixabay.com/get/gc060af877a5cea3bc171aa44884dfd92cdccda1161f1d692fa677c04c3ffb76fcf03bb67499101d70f5e6a32ac5f0aa2e49f1b1da53a2ffdf48a747711015f2a0f39d4cc761bd520ad2eec7cb3866746_640.jpg")
                 .build());
         Category supplements = categoryRepository.save(Category.builder()

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:insert="main::head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav th:replace="main::navigation(categories=${categories})"></nav>
+<table>
+    <tbody>
+    <h2>Wyszukane produkty: </h2>
+    <table class="table table-striped">
+        <tr th:each="product: ${productsSearched}">
+            <td>
+                <a th:href="@{'/category/' + '/products/' + ${product.getProductId()}}" th:text="${product.getProductName()}"></a>
+            </td>
+        </tr>
+    </table>
+    </tbody>
+</table>
+</body>
+</html>

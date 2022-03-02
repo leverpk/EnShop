@@ -5,11 +5,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+import java.io.Serializable;
 
 @Entity
 @Data
 @NoArgsConstructor
-public class ProductInOrder {
+public class ProductInOrder implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

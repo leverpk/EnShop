@@ -6,6 +6,7 @@ import org.hibernate.annotations.ColumnDefault;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
@@ -13,7 +14,7 @@ import java.util.Set;
 @Entity
 @Data
 @NoArgsConstructor
-public class Order {
+public class Order implements Serializable {
 
     @Id
     @NotNull
