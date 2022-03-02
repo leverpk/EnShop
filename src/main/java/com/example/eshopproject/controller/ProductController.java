@@ -38,7 +38,6 @@ public class ProductController {
     public String searchedProducts(Model model, @RequestParam(value = "phrase", required = false) String phrase) {
         model.addAttribute("categories", categoryService.findAllCategories());
         model.addAttribute("productsSearched", productService.findAllProductsContainsPhrase(phrase));
-        model.addAttribute("phrase", phrase);
         return "product/searched-products";
     }
 

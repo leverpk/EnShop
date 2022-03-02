@@ -14,7 +14,7 @@
     <table class="table table-striped">
         <tr th:each="product: ${productsSearched}">
             <td>
-                <a th:href="@{'/category/' + '/products/' + ${product.getProductId()}}" th:text="${product.getProductName()}"></a>
+                <a th:href="@{'/category/' + ${categoryId} + '/products/' + ${product.getProductId()}}" th:text="${product.getProductName()}"></a>
             </td>
         </tr>
     </table>

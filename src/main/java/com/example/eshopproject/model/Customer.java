@@ -46,8 +46,8 @@ public class Customer implements UserDetails {
     private String role;
     private boolean locked = false;
     private boolean enabled = false;
-    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Basket basket;
+//    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    private Basket basket;
 
 
     @Override

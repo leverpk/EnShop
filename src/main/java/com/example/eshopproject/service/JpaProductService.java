@@ -33,7 +33,7 @@ public class JpaProductService implements ProductService{
 
     @Override
     public List<Product> findAllProductsContainsPhrase(String phrase) {
-        return productRepository.findProductsByProductNameContains(phrase);
+        return productRepository.findProductsByProductNameIgnoreCaseContaining(phrase);
     }
 
 }

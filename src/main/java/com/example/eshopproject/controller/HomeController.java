@@ -20,4 +20,11 @@ public class HomeController {
         return "index";
     }
 
+    @GetMapping("/aboutus")
+    public String aboutUs(Model model){
+        model.addAttribute("categories", categoryService.findAllCategories());
+        return "aboutus";
+    }
+
+
 }

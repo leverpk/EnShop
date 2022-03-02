@@ -1,15 +1,13 @@
 package com.example.eshopproject.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.math.BigDecimal;
+import java.util.List;
 
 @Builder
 @Entity
@@ -19,16 +17,17 @@ import java.util.Set;
 public class Basket implements Serializable {
 
     @Id
-    @NotNull
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long basketId;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @MapsId
-    @JsonIgnore
+    @ManyToOne
     private Customer customer;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "basket")
-    private Set<ProductInOrder> products = new HashSet<>();
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Product> products;
+
+    private BigDecimal totalPrice;
+
+    private int quantity;
 
 }
