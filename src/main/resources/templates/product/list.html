@@ -11,10 +11,10 @@
 <table>
     <tbody>
 
-    <div class="threadlist m-4">
+    <div class="threadlist m-4 text-center">
         <h1 th:text="${category.getCategoryName()}"></h1>
     </div>
-    <div class="m-4"><h5 th:text="${category.getDescription()}"></h5></div>
+    <div class="m-4 text-center"><h5 th:text="${category.getDescription()}"></h5></div>
     <br>
 
     <tr th:each="product:${products}">
