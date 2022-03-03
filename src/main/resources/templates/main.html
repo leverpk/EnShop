@@ -6,9 +6,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<nav th:fragment="navigation" class="navbar navbar-expand-lg navbar-light bg-light">
+<nav th:fragment="navigation" class="navbar navbar-expand-lg navbar-dark bg-dark">
     <img src="https://i.ibb.co/4Rh0VDk/LOAD-UP.png" width="70px" height="70px">
-    <a class="navbar-brand ml-3" href="/">Strona Główna</a>
+    <a class="navbar-brand ml-3" href="/">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -16,33 +16,36 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/aboutus">O Nas</a>
+                <a class="nav-link" href="/aboutus">About Us</a>
+            </li>
+            <li class="nav-item mr-5" >
+                <a class="nav-link" href="/contact">Contact</a>
             </li>
             <li th:each="category:${categories}" class="nav-item active">
                 <a class="nav-link" th:href="@{'/category/' + ${category.getCategoryId}}" th:text="${category.getCategoryName()}"><span class="sr-only">(current)</span></a>
             </li>
         </ul>
         <form th:action="@{'/products/searched'}" method="get" class="form-inline my-2 my-lg-0">
-            <input name="phrase" class="form-control mr-sm-2" type="search" placeholder="Wyszukaj produkt" aria-label="Search" th:value="${phrase}">
-            <button class="btn btn-outline-success my-2 my-sm-0 ml-2" type="submit">Szukaj</button>
+            <input name="phrase" class="form-control mr-sm-2" type="search" placeholder="Search product..." aria-label="Search" th:value="${phrase}">
+            <button class="btn btn-outline-success my-2 my-sm-0 ml-2" type="submit">Search</button>
         </form>
         <div class="mr-2">
 <span class="navbar-text my-2 ml-4">
-    Użytkownik:
+    User:
     <strong
-            th:text="${#strings.equals(#authentication.getName(), 'anonymousUser') ? 'niezalogowany' : #authentication.getName() }">
+            th:text="${#strings.equals(#authentication.getName(), 'anonymousUser') ? 'guest' : #authentication.getName() }">
     </strong>
 </span>
         </div>
         <a th:href="${'/basket/list'}"><img src="https://i.ibb.co/GCTy1tq/Pngtree-shopping-cart-icon-4423346.png" height="60px" width="60px"></a>
         <div class="ml-3" th:if="${!#strings.equals(#authentication.getName(), 'anonymousUser')}">
-            <a class="btn btn-outline-success my-2 my-sm-0 ml-2" th:href="@{/logout}">Wyloguj</a>
+            <a class="btn btn-outline-success my-2 my-sm-0 ml-2" th:href="@{/logout}">Logout</a>
         </div>
         <div th:if="${#strings.equals(#authentication.getName(), 'anonymousUser')}">
-            <a class="btn btn-outline-success my-2 my-sm-0 ml-2" th:href="@{/login}">Zaloguj</a>
+            <a class="btn btn-outline-success my-2 my-sm-0 ml-2" th:href="@{/login}">Login</a>
         </div>
         <div th:if="${#strings.equals(#authentication.getName(), 'anonymousUser')}">
-            <a class="btn btn-outline-success my-2 my-sm-0 ml-2" th:href="@{/login}">Zarejestruj się</a>
+            <a class="btn btn-outline-success my-2 my-sm-0 ml-2" th:href="@{/login}">Sign Up</a>
         </div>
     </div>
 </nav>

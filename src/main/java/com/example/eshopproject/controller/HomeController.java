@@ -26,5 +26,11 @@ public class HomeController {
         return "aboutus";
     }
 
+    @GetMapping("/contact")
+    public String contact(Model model){
+        model.addAttribute("categories", categoryService.findAllCategories());
+        return "contact";
+    }
+
 
 }
