@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<body class="bg-light text-dark">
 <nav th:replace="main::navigation(categories=${categories})"></nav>
 <table>
     <thead>
@@ -19,7 +19,7 @@
                 <div class="text-center"><span th:text="${product.getProductName()}"></span>
                 <div class="text-center"><span th:text="${product.getProductPrice()}"></span><span> zł</span></div>
                 <div class="text-center"><span th:text="${product.getProductDescription()}"></span><br>
-                <div class="text-center">Na stanie: <span th:text="${product.getProductStock()}"></span>
+                <div class="text-center">Stock: <span th:text="${product.getProductStock()}"></span>
             </h5></div><br>
 
 <!--                    <form th:action="@{'/category/' + ${categoryId} + '/products/' + ${idProduct}}" th:method="post">-->
