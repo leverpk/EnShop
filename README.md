@@ -1,8 +1,8 @@
-# EnShop
+# EnShop - E-shop Project
 
-E-shop Project with natural stimulants.
-This is my first project as a java junior developer candidate.
-Project is still in progress.
+E-shop Project with natural stimulants.<br>
+This is my first project as a java junior developer candidate.<br>
+Project is still in progress.<br>
 
 TECHNOLOGIES:<br>
 Java<br>
