@@ -6,11 +6,11 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<body class="bg-light text-dark">
 <nav th:replace="main::navigation(categories=${categories})"></nav>
 <table>
     <tbody>
-    <h2>Searched products: </h2>
+    <h1>Searched products: </h1>
     <table class="table table-striped">
         <tr th:each="product: ${productsSearched}">
             <td>
