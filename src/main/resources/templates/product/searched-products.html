@@ -10,11 +10,12 @@
 <nav th:replace="main::navigation(categories=${categories})"></nav>
 <table>
     <tbody>
-    <h1>Searched products: </h1>
-    <table class="table table-striped">
+    <h1 class="m-4">Searched products: </h1>
+
+    <table class="table table-striped" style="color: darkslategray">
         <tr th:each="product: ${productsSearched}">
             <td>
-                <a th:href="@{'/category/' + 1 + '/products/' + ${product.getProductId()}}" th:text="${product.getProductName()}"></a>
+                <h4><a th:href="@{'/category/' + 1 + '/products/' + ${product.getProductId()}}" th:text="${product.getProductName()}"></a></h4>
             </td>
         </tr>
     </table>
