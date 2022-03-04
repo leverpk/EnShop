@@ -15,7 +15,12 @@
     <table class="table table-striped" style="color: darkslategray">
         <tr th:each="product: ${productsSearched}">
             <td>
-                <h4><a th:href="@{'/category/' + 1 + '/products/' + ${product.getProductId()}}" th:text="${product.getProductName()}"></a></h4>
+                <div class="shadow p-3 mb-2 bg-body rounded">
+                <h4 class="d-inline mr-2"><a th:href="@{'/category/' + 1 + '/products/' + ${product.getProductId()}}" th:text="${product.getProductName()}"></a></h4>
+                <a th:href="@{'/category/' + 1 + '/products/' + ${product.getProductId()}}">
+                    <img class="shadow bg-body rounded" th:src="${product.getProductIcon()}" height="75px" width="100px">
+                </a>
+                </div>
             </td>
         </tr>
     </table>
